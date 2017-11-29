@@ -6,7 +6,7 @@ public class Employee {
 	String lastname;
 	int age;
 	int id;
-        //use only for the need
+        //use only for the need//
 	public String getFirstname() {
 		return firstname;
 	}
