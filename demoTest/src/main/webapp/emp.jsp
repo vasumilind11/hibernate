@@ -8,13 +8,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-       <jsp:useBean id="obj" class="com.mvmWeb.demoTest.Employee"></jsp:useBean>
+       <%-- <jsp:useBean id="obj" class="com.mvmWeb.demoTest.Employee"></jsp:useBean>
        <jsp:setProperty property="*" name="obj"/>
-        
-        <% session.invalidate(); %>
+ --%>        
+        <%  session.invalidate();%>
         
        <%
-            int i = EmployeeDao.register(obj);
+            EmployeeDao.register();
            
        
        %>

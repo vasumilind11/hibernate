@@ -4,27 +4,25 @@
  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
  
  <hibernate-mapping>
- <class name="com.mvmWeb.demoTest.Employee" table="Employee1234" discriminator-value="emp1">
+ <class name="com.mvmWeb.demoTest.Employee" table="EmpTest" discriminator-value="emp1">
     
     <id name="id" >
          <generator class="assigned"></generator>
     </id>
     
-    <discriminator type="string" column="class-type" ></discriminator>
+  <discriminator type="string" column="type" ></discriminator>
     <property name="firstname"></property>
     <property name="lastname"></property>
     <property name="age"></property>
-    
-    
-    
-     <subclass name="com.mvmWeb.demoTest.Employee2" discriminator-value="emp2">
-     <property name="address"></property>
-     <property name="mobno"></property>
-      </subclass>
-    
-      <subclass name="com.mvmWeb.demoTest.Employee3" discriminator-value="emp3">
+  
+    <subclass name="com.mvmWeb.demoTest.Employee2" discriminator-value="emp2">
+    <property name="address"></property>
+    <property name="mobno"></property>
+    </subclass>
+   
+    <subclass name="com.mvmWeb.demoTest.Employee3" discriminator-value="emp3">
          <property name="salary"></property>
-      </subclass>
+    </subclass>
     
  </class>
  

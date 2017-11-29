@@ -1,6 +1,6 @@
 package com.mvmWeb.demoTest;
 
-public class Employee3 extends Employee {
+public class Employee3 extends Employee{
 
    int salary;
 
