@@ -10,21 +10,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="answer")
+/*@Entity
+@Table(name="answer")*/
 public class Answer {
 	
-	@Id
+	/*@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="id")*/
 	private int id;
 	
-/*	@ManyToOne(fetch=FetchType.LAZY)*/
-	@JoinColumn(name="id", nullable = false)
+///*	@ManyToOne(fetch=FetchType.LAZY)*/
+//	@JoinColumn(name="id", nullable = false)
 	private String answer;
 	
 	
-	@Column(name="postedBy")
+	/*@Column(name="postedBy")*/
 	private String postedBy;
 	
 	public int getId() {

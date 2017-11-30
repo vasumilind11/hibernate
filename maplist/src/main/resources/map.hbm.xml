@@ -11,11 +11,10 @@
         	</id>
         	<property name="qname"></property>
      
-    	    <list name="ansr" cascade="all">
+    	    <bag name="ansr" cascade="all">
                <key column="qid" not-null="true"></key>
-               <index column="type"></index>
                <one-to-many class="com.mvmWeb.maplist.Answer"></one-to-many>
-        	</list>
+        	</bag>
       </class>
       <class name="com.mvmWeb.maplist.Answer" table="Answer">
            <id name="id">

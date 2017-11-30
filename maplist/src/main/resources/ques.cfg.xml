@@ -15,10 +15,10 @@
        <property name="hibernate.connection.password">root</property>
        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>      
        <property name="hibernate.connection.autocommit">true</property> 
-      <!--  <mapping resource= "map.hbm.xml"/> -->
+       <mapping resource= "map.hbm.xml"/>
        
-       <mapping class="com.mvmWeb.maplist.Question"></mapping>
-       <mapping class="com.mvmWeb.maplist.Answer"/> 
+      <!--  <mapping class="com.mvmWeb.maplist.Question"></mapping>
+       <mapping class="com.mvmWeb.maplist.Answer"/>  -->
       
        
        

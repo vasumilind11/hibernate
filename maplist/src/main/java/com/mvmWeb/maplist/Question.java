@@ -12,20 +12,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="Question")
+/*@Entity
+@Table(name="Question")*/
 public class Question {
 	
 	
-	@Id
+/*	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name="id")*/
 	private int id;
 	
-	@Column(name="question")
+	/*@Column(name="question")*/
 	private String  qname;
 	
-	@OneToMany(mappedBy="answer",fetch=FetchType.LAZY, cascade= CascadeType.ALL)
+	/*@OneToMany(mappedBy="answer",fetch=FetchType.LAZY, cascade= CascadeType.ALL)*/
 	private List<Answer> ansr;
 	
 	public int getId() {
