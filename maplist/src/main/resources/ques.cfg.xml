@@ -5,9 +5,9 @@
           
  <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+     <!--    <property name="hibernate.hbm2ddl.auto">create</property> -->
        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property> 
-       <property name="hibernate.show_sql">true</property>   
+      <!--  <property name="hibernate.show_sql">true</property>  -->  
      
        <property name="hibernate.enable_lazy_load_no_trans">true</property>
        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/myapp</property>
@@ -15,11 +15,11 @@
        <property name="hibernate.connection.password">root</property>
        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>      
        <property name="hibernate.connection.autocommit">true</property> 
-       <mapping resource= "map.hbm.xml"/>
+      <mapping resource= "map.hbm.xml"/> 
        
       <!--  <mapping class="com.mvmWeb.maplist.Question"></mapping>
-       <mapping class="com.mvmWeb.maplist.Answer"/>  -->
-      
+       <mapping class="com.mvmWeb.maplist.Answer"/> 
+       -->
        
        
     </session-factory>

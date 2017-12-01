@@ -10,22 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/*@Entity
-@Table(name="answer")*/
+
 public class Answer {
 	
-	/*@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")*/
 	private int id;
-	
-///*	@ManyToOne(fetch=FetchType.LAZY)*/
-//	@JoinColumn(name="id", nullable = false)
-	private String answer;
-	
-	
-	/*@Column(name="postedBy")*/
-	private String postedBy;
+    private String answer;
+    private String postedBy;
 	
 	public int getId() {
 		return id;

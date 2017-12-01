@@ -1,33 +1,22 @@
 package com.mvmWeb.maplist;
 
 import java.util.List;
+import java.util.Map;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-/*@Entity
-@Table(name="Question")*/
 public class Question {
 	
 	
-/*	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")*/
 	private int id;
-	
-	/*@Column(name="question")*/
 	private String  qname;
+	private Map<String,Answer> answer;
 	
-	/*@OneToMany(mappedBy="answer",fetch=FetchType.LAZY, cascade= CascadeType.ALL)*/
-	private List<Answer> ansr;
 	
+	public Map<String, Answer> getAnswer() {
+		return answer;
+	}
+	public void setAnswer(Map<String, Answer> answer) {
+		this.answer = answer;
+	}
 	public int getId() {
 		return id;
 	}
@@ -39,12 +28,6 @@ public class Question {
 	}
 	public void setQname(String qname) {
 		this.qname = qname;
-	}
-	public List<Answer> getAnsr() {
-		return ansr;
-	}
-	public void setAnsr(List<Answer> ansr) {
-		this.ansr = ansr;
 	}
 	
 

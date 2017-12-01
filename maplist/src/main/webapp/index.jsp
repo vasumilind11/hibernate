@@ -10,9 +10,9 @@
     <body>
         <%@ page import="com.mvmWeb.maplist.QuestionMain" %>
         
-         <%    QuestionMain.register(); 
-               /* QuestionMain.fetch();    */
-         
+         <%    /*  QuestionMain.register();  */
+                QuestionMain.fetch();    
+          
          %>
                 
     </body>

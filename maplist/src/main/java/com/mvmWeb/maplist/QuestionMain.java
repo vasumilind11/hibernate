@@ -1,14 +1,18 @@
 package com.mvmWeb.maplist;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
+
 
 public class QuestionMain {
 	
@@ -26,7 +30,7 @@ public class QuestionMain {
 		    Session session = getCurrentSession();
 		    Transaction t = session.beginTransaction();
 		    
-		    ArrayList<Answer> list1 = new ArrayList<Answer>();
+		     HashMap<String,Answer> list1 = new HashMap<String,Answer>();
 		    {
 			    Answer ans1 = new Answer();
 			    ans1.setPostedBy("Milind Jain");
@@ -36,11 +40,11 @@ public class QuestionMain {
 			    ans2.setPostedBy("Ankush Jain");
 			    ans2.setAnswer("My name is Ankush Jain");
 			   
-			    list1.add(ans1);
-			    list1.add(ans2);
+			    list1.put("1",ans1);
+			    list1.put("2",ans2);
 		    }
 		    
-		    ArrayList<Answer> list2 = new ArrayList<Answer>();
+		    HashMap<String,Answer> list2 = new HashMap<String,Answer>();
 		    {
 			    Answer ans1 = new Answer();
 			    ans1.setPostedBy("Milind Jain");
@@ -50,18 +54,18 @@ public class QuestionMain {
 			    ans2.setPostedBy("Ankush Jain");
 			    ans2.setAnswer("I am Male");
 			   
-			    list2.add(ans1);
-			    list2.add(ans2);
+			    list2.put("1",ans1);
+			    list2.put("2",ans2);
 		    }
 		    
 		    
 		    Question ques1 = new Question();
 		    ques1.setQname("What is Your Name");
-		    ques1.setAnsr(list1);
+		    ques1.setAnswer(list1);
 		    
 		    Question ques2 = new Question();
 		    ques2.setQname("what is your Sex");
-		    ques2.setAnsr(list2);
+		    ques2.setAnswer(list2);
 		    
 		    session.persist(ques1);
 		    session.persist(ques2);
@@ -81,20 +85,22 @@ public class QuestionMain {
         	   Query query = session.createQuery("From Question");
         	   List<Question> list1 = query.list();
         	   Iterator<Question> itr1 = list1.iterator();
+        	    
+        	   System.out.println(list1.isEmpty());
 
         	   while(itr1.hasNext())
         	   {
         		   Question q = itr1.next();
         		   System.out.println(q.getQname());
+        		   Map<String, Answer> map1= q.getAnswer();
+        		   Set<Map.Entry<String,Answer>> entryset = map1.entrySet();
     		  
-        		   List<Answer> list2= q.getAnsr();  
-    		  
-        		   Iterator<Answer> itr2=list2.iterator();  
-        		   while(itr2.hasNext()){ 
-            	   
-            	   Answer ans = itr2.next();
-                   System.out.println(ans.getAnswer()+"\n"+"PostedBy: "+ans.getPostedBy());  
-    		   }
+        		   Iterator<Entry<String, Answer>> entry = entryset.iterator();
+        		   while(entry.hasNext())
+        		   { 
+            	         Entry<String, Answer> ans =  entry.next();
+                         System.out.println(ans.getKey()+ ans.getValue().getAnswer() +"\n"+ "PostedBy: "+ans.getKey() + ans.getValue().getPostedBy());  
+    		       }
     	    
         		   if(t.getStatus().equals(TransactionStatus.ACTIVE)) { 
             	    t.commit();
@@ -103,7 +109,7 @@ public class QuestionMain {
                session.close();
     	 
            }  
-    	   
+    	  
     	   }
 
 }
